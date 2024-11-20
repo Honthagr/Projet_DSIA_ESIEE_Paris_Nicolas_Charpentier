@@ -1,15 +1,9 @@
 from typing import List
-
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 from datetime import datetime
-from app import models, schemas
+from app import models
 from uuid import uuid4
-
-import jwt
-from app.services.auth import JWT_SECRET_KEY, JWT_SECRET_ALGORITHM
-from starlette.status import HTTP_401_UNAUTHORIZED
-from jwt import InvalidTokenError
 from apscheduler.schedulers.background import BackgroundScheduler
 from app.models.db import get_db
 

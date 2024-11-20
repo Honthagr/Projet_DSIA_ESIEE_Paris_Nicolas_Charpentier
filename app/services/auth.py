@@ -1,7 +1,7 @@
 import os
 
 import jwt
-from fastapi import Depends, HTTPException
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 
 from app.schemas.user import User

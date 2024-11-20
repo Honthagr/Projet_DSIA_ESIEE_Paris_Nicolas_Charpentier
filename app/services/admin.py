@@ -1,9 +1,8 @@
 from typing import List
-from pydantic import Field
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 from datetime import datetime
-from app import models, schemas
+from app import models
 from uuid import uuid4
 
 
