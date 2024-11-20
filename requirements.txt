@@ -1,0 +1,8 @@
+starlette_exporter
+sqlalchemy
+pydantic
+psycopg2
+python-slugify
+pyjwt
+fastapi
+apscheduler
