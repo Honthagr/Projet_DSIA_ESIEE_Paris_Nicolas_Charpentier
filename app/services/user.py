@@ -31,26 +31,34 @@ def IBAN(db:Session,user_id: str) -> str:
     UserIBAN = record.IBAN
     return UserIBAN
 
-def historique(db:Session,user_id: str) -> List:
+def historique(db: Session, user_id: str) -> List[dict]:
     user = db.query(models.User).filter(models.User.id == user_id).first()
     if not user:
-        raise HTTPException(status_code=404, detail=f"User not found")
+        raise HTTPException(status_code=404, detail="User not found")
+    
     record1 = db.query(models.Expense).filter(models.Expense.id_user == user_id).all()
     record2 = db.query(models.Transfer).filter(models.Transfer.id_user == user_id).all()
     record3 = db.query(models.Transfer).filter(models.Transfer.IBAN_user2 == user.IBAN).all()
     record4 = db.query(models.Subscription).filter(models.Subscription.id_user == user_id).all()
     record5 = db.query(models.Subscription).filter(models.Subscription.IBAN_user2 == user.IBAN).all()
-    for record in record1:
+    
+    all_records = record1 + record2 + record3 + record4 + record5
+    
+    for record in all_records:
         record.id = str(record.id)
-    for record in record2:
-        record.id = str(record.id)
-    for record in record3:
-        record.id = str(record.id)
-    for record in record4:
-        record.id = str(record.id)
-    for record in record5:
-        record.id = str(record.id)
-    return [record1, record2, record3, record4, record5]
+    
+    sorted_records = sorted(all_records, key=lambda x: x.updated_at, reverse=True)
+    
+    return [
+        {
+            "id": record.id,
+            "type": type(record).__name__,
+            "updated_at": record.updated_at,
+            "value": record.price,
+            "description": record.description,
+        }
+        for record in sorted_records
+    ]
 
 def depense(Amount:int,db:Session,user_id: str) -> models.Expense:
     checkLockedAccount(db,user_id)
