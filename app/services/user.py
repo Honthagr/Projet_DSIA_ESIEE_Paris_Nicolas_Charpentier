@@ -210,6 +210,10 @@ def process_subscriptions():
                 db.delete(sub)
                 db.commit()
                 continue
+            
+            if user.Lock == True:
+                print(f"User {user.id} have his account locked and can't proceed with the subscription")
+                continue                
 
             # Fetch recipient user details
             recipient = db.query(models.User).filter(models.User.IBAN == sub.IBAN_user2).first()

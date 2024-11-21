@@ -21,6 +21,7 @@ def get_members(db:Session,user_id: str) -> List[models.User]:
     records = db.query(models.User).filter().all()
     for record in records:
         record.id = str(record.id)
+        record.password = "Secret"
     return records
 
 def delete_all_members(db:Session,user_id: str) -> List[models.User]:

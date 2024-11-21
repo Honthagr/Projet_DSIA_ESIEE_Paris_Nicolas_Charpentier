@@ -22,6 +22,7 @@ app = FastAPI(
 app.include_router(routers.ConfigRouter)
 app.include_router(routers.UserRouter)
 app.include_router(routers.AdminRouter)
+app.include_router(routers.AuthRouter)
 
 @app.on_event("startup")
 async def startup_event():

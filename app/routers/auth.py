@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-import models
-from schemas.auth_token import AuthToken
-from schemas.user import User
-from services.auth import generate_access_token
+from app import models
+from app.schemas.auth_token import AuthToken
+from app.schemas.user import User
+from app.services.auth import generate_access_token
 
 auth_router = APIRouter(prefix="/auth")
 
