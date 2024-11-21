@@ -23,7 +23,7 @@ Several functionalities for the users, like a bank would propose :
  - Delete all the users
 
  
-## How to run it
+## How to run and use it
  Go into the folder and execute :
  ```
  docker compose up --build"
