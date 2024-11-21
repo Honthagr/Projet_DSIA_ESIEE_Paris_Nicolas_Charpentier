@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException
 from datetime import datetime
 from app import models
-from uuid import uuid4
+from uuid import uuid4, UUID
 from apscheduler.schedulers.background import BackgroundScheduler
 from app.models.db import get_db
 
@@ -157,9 +157,18 @@ def abonnement(user_id:str,db:Session,IBAN_User2:str,Amount:int):
 
 def delete_abonnement(user_id:str,ID_Subscription:str,db:Session) -> str:
     checkLockedAccount(db,user_id)
-    db_subscription= db.query(models.Subscription).filter(models.Subscription.id_user==user_id and models.Subscription.id==ID_Subscription).first()
+
+    # Validate the ID_Subscription as a UUID
+    try:
+        subscription_uuid = UUID(ID_Subscription)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid subscription ID format")
+    
+    db_subscription= db.query(models.Subscription).filter(models.Subscription.id==subscription_uuid).first()
     if not db_subscription:
         raise HTTPException(status_code=404, detail=f"Subscription not found")
+    if db_subscription.id_user != user_id:
+        raise HTTPException(status_code=401, detail=f"This subscription is not yours")
     db.delete(db_subscription)
     db.commit()
     return {f"Subscription deleted"}
