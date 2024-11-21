@@ -34,9 +34,10 @@ Then connect to :
  ```
 http://localhost:8080/docs
  ```
-The API doesn't have a front end and need to be operate on the docs part of FastAPI.
+The API doesn't have a front end and need to be operate on the docs part of FastAPI. It means all functionalities have to be operated by first clicking on "try it out", then filling the necessary information, and finally clicking on "executing".
 
 Once you are there, you can create a new user on "/nouveau_user", then log in with the credentials used on "/connection". If you want to have a admin account, specify "9999" in "password_admin" when creating a user.
+To create a new user, you need to file the json file with the information about the user.
 
 When you execute the "/connection", you obtain a token, copy it without the quotation mark in the Authorize button. After that you will have access to the user part if you're only a user, and the user and admin part if you're an admin.
 
