@@ -1,0 +1,62 @@
+/* Container for the Abonnement Manager */
+.abonnement-manager-container {
+    margin: 0;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title for Abonnement Manager */
+  .abonnement-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00446a;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Styling for the form */
+  .abonnement-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Styling for input fields */
+  .abonnement-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Styling for buttons */
+  .abonnement-button {
+    padding: 0.8rem;
+    background-color: #00446a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .abonnement-button:hover {
+    background-color: #002e4a;
+    transform: scale(1.02);
+  }
+  
+  /* Specific styling for delete button */
+  .abonnement-button.delete {
+    background-color: #ff4d4d;
+  }
+  
+  .abonnement-button.delete:hover {
+    background-color: #cc0000;
+  }

@@ -1,9 +1,6 @@
-version: '3.4'
-
 networks:
   default:
     driver: bridge
-
 services:
   api:
     build: .
@@ -13,21 +10,27 @@ services:
       - ./app/:/app/app
     command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
     ports:
-      - "8080:8080"
+    - "8080:8080"
     env_file:
       - .env
     depends_on:
       - db
-
+  react_app:
+    build:
+      context: ./react_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
   db:
     image: postgres
     restart: always
     env_file:
       - .env
     ports:
-      - "5432:5432"
+    - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+    postgres_data:

@@ -1,0 +1,53 @@
+/* Securite Manager Container */
+.securite-manager {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Ensures consistent width */
+    box-sizing: border-box;
+  }
+  
+  /* Title Styling */
+  .securite-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00446a;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Button Styling */
+  .securite-button {
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Update Security Button */
+  .securite-button:first-of-type {
+    background-color: #00446a; /* Main blue color */
+    color: white;
+  }
+  
+  .securite-button:first-of-type:hover {
+    background-color: #002e4a; /* Darker blue */
+    transform: scale(1.02);
+  }
+  
+  /* Delete Account Button */
+  .delete-button {
+    background-color: #d9534f; /* Red for delete */
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #b52a25; /* Darker red */
+    transform: scale(1.02);
+  }
