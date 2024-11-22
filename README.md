@@ -23,7 +23,7 @@ Several functionalities for the users, like a bank would propose :
  - Delete all the users
 
  
-## How to run and use it
+## How to run and use it without Front End
  Go into the folder and execute :
  ```
  docker compose up --build"
@@ -55,6 +55,10 @@ Finally in the historique part, all movements of money concerning the user are d
 - [transfer of another user toward this user]
 - [subscription of the user toward another user]
 - [subscription of another user toward this user]
+
+## How to run and use it with Front End
+
+
 
 ## Difficulties
 
