@@ -27,7 +27,7 @@ Several functionalities for the users, like a bank would propose :
 ## How to run and use it without Front End
  Go into the folder and execute :
  ```
- docker compose up --build"
+ docker compose up --build
  ```
 
 Then connect to :
@@ -60,7 +60,7 @@ Finally in the historique part, all movements of money concerning the user are d
 ## How to run and use it with Front End
  Go into the folder and execute :
  ```
- docker compose up --build"
+ docker compose up --build
  ```
 
 Then connect to :
