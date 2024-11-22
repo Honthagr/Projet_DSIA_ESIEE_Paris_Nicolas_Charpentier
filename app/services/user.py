@@ -31,6 +31,13 @@ def IBAN(db:Session,user_id: str) -> str:
     UserIBAN = record.IBAN
     return UserIBAN
 
+def type(db:Session,user_id: str) -> int:
+    record = db.query(models.User).filter(models.User.id == user_id).first()
+    if not record:
+        raise HTTPException(status_code=404, detail=f"User not found")
+    UserType = record.typeAccount
+    return UserType
+
 def historique(db: Session, user_id: str) -> List[dict]:
     user = db.query(models.User).filter(models.User.id == user_id).first()
     if not user:

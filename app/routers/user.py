@@ -18,6 +18,10 @@ async def balance(user_id = Depends(checkSecurityandUserID),db: Session = Depend
 async def IBAN(user_id = Depends(checkSecurityandUserID),db: Session = Depends(models.get_db)):
     return user_service.IBAN(user_id=user_id,db=db)
 
+@router.get("/type", dependencies=[Depends(security)], tags=["user"])
+async def type(user_id = Depends(checkSecurityandUserID),db: Session = Depends(models.get_db)):
+    return user_service.type(user_id=user_id,db=db)
+
 @router.get("/historique", dependencies=[Depends(security)], tags=["user"])
 async def historique(user_id = Depends(checkSecurityandUserID),db: Session = Depends(models.get_db)):
     return user_service.historique(user_id=user_id,db=db)
