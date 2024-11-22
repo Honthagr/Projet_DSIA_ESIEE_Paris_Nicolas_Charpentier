@@ -2,6 +2,7 @@
  Github for my project of full stack data application
  
  This API was made with FastAPI and run on docker with a docker-compose file. It's also made of a database postGreSql to store all the information.
+ The Front-end is made of javascript with React.
 
 ## Subject
 The objectives of this project was to create an API that could be use for a bank. We have 3 mains parts on it : 
@@ -34,7 +35,7 @@ Then connect to :
  ```
 http://localhost:8080/docs
  ```
-The API doesn't have a front end and need to be operate on the docs part of FastAPI. It means all functionalities have to be operated by first clicking on "try it out", then filling the necessary information, and finally clicking on "executing".
+To run the API without the front end and with the docs means all functionalities have to be operated by first clicking on "try it out", then filling the necessary information, and finally clicking on "executing".
 
 Once you are there, you can create a new user on "/nouveau_user", then log in with the credentials used on "/connection". If you want to have a admin account, specify "9999" in "password_admin" when creating a user.
 To create a new user, you need to file the json file with the information about the user.
@@ -57,8 +58,22 @@ Finally in the historique part, all movements of money concerning the user are d
 - [subscription of another user toward this user]
 
 ## How to run and use it with Front End
+ Go into the folder and execute :
+ ```
+ docker compose up --build"
+ ```
 
+Then connect to :
 
+ ```
+http://localhost:3000
+ ```
+
+Once on the page you'll have to register a new user. Use the credentials to then connect in "Log in".
+
+You'll be transported to the user dashboard part, were you can use all the functionalities. You can also navigate on the admin dashboard, but you'll only be able to use the services if your account is an admin one.
+
+To have more information about all the services, it's recommended to read the in formation in "How to run and use it without Front End" that is more detailed.
 
 ## Difficulties
 
@@ -72,7 +87,7 @@ Third problem was the adaptation of the authentification from the TP to my code.
 
 The final functionaly implemented was the subscription. This lead to the question of how to do for the amount to be automatically transfer between 2 accounts every X time. For that I asked ChatGPT and he propose the idea of the scheduler. With his help I was able to implement it, to make the subscription work every minutes.
 
-The final problem was the question of the Front end. I tried to do some HTML to create a HTML but didn't succeed. I then asked chatGPT to generate one, but I never got a good result, with either React or HTML, I didn't get any good result. I decided to keep the use of /docs for the API.
+The final problem was the question of the Front end. I tried to do some HTML to create a HTML but didn't succeed. I then had to asked chatGPT and to generate one and was able to get a pretty good one with enough time. It's not totally finish but the result is good.
 
 ## Competences acquired
 
